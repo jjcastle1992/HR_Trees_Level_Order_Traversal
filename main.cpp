@@ -59,7 +59,7 @@ class Node {
             //Enqueue current node
             discoveredNodes.push(root);
 
-            //Dequeue first node and recurse
+            //Dequeue first node
             while (!discoveredNodes.empty()) {
                 Node *current = discoveredNodes.front();
                 discoveredNodes.pop();
@@ -71,8 +71,6 @@ class Node {
                 if (current->right) {
                     discoveredNodes.push(current->right);
                 }
-                Node *nextNode = discoveredNodes.front();
-                levelOrder(nextNode);
             }
         }
     }
