@@ -50,7 +50,7 @@ class Node {
         /*
          * Level Order traversal seeks to visit all nodes at a given "level" before printing the next layer.
          * Time = O(N)
-         * Space = O(NlogN)
+         * Space = O(N)
          */
 
         //Edge-case: Check to see if tree is empty
