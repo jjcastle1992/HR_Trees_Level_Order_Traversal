@@ -47,26 +47,31 @@ class Node {
 */
 
     void levelOrder(Node * root) {
-        queue<Node*> discoveredNodes;
         /*
          * Level Order traversal seeks to visit all nodes at a given "level" before printing the next layer.
+         * Time = O(N)
+         * Space = O(NlogN)
          */
 
         //Edge-case: Check to see if tree is empty
         if (root) {
-            //Print payload of current node
-            std::cout << root->data << " ";
-            //Build my queue of discovered child nodes
-            if (root->left) {
-                discoveredNodes.push(root->left);
-            }
-            if (root->right) {
-                discoveredNodes.push(root->right);
-            }
+            queue<Node*> discoveredNodes;
+            //Enqueue current node
+            discoveredNodes.push(root);
+
             //Dequeue first node and recurse
             while (!discoveredNodes.empty()) {
-                Node *nextNode = discoveredNodes.front();
+                Node *current = discoveredNodes.front();
                 discoveredNodes.pop();
+                std::cout << current->data << " ";
+                //Build my queue of discovered child nodes
+                if (current->left) {
+                    discoveredNodes.push(current->left);
+                }
+                if (current->right) {
+                    discoveredNodes.push(current->right);
+                }
+                Node *nextNode = discoveredNodes.front();
                 levelOrder(nextNode);
             }
         }
