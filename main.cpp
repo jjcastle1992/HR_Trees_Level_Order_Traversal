@@ -47,8 +47,13 @@ class Node {
 */
 
     void levelOrder(Node * root) {
-
-
+    queue<Node> discoveredNodes;
+    /*
+     * Level Order traversal seeks to visit all nodes at a given "level" before printing the next layer.
+     */
+    //Print payload of current node
+    //Build my queue of discovered child nodes
+    //Dequeue first node and recurse
     }
 
 }; //End of Solution
